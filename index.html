@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  background-color: white;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #d32f2f;
+  font-size: 2.2em;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.yes-button,
+.no-button {
+  font-size: 1.4em;
+  padding: 10px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.yes-button {
+  background-color: #fa0561;
+  color: white;
+  margin-right: 10px;
+}
+
+.no-button {
+  background-color: #d3d3d3;
+  color: black;
+}
+
+.gif_container img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 15px;
+}
+
+/* hide yes page */
+#yesPage {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MAIN PAGE -->
+<div class="container" id="mainPage">
+  <div class="gif_container">
+    <!-- SAME IMAGE, NOW LOCAL -->
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHBlaTJvb2NoanZqcHRzamlvcXJjeWJycXgyNnhrY2htbHI0aDhqYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/fvN5KrNcKKUyX7hNIA/giphy.gif" alt="Cute Love Bear">
+  </div>
+
+  <h1>Will you be my Valentine? 💘</h1>
+
+  <div class="buttons">
+    <button class="yes-button" onclick="handleYesClick()">Yes</button>
+    <button class="no-button" onclick="handleNoClick()">No</button>
+  </div>
+</div>
+
+<!-- YES PAGE -->
+<div class="container" id="yesPage">
+  <div class="gif_container">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWZvcndkYnJ2cnEzeG53M2pnenkwcGFtdDBoY284NGZhMXhsZXA5eCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/BOPz50G5Cf2Y5XS9Ba/giphy.gif" alt="Cute Love Bear">
+  </div>
+  <h1>UUUUUUMMMMMMAAAAAA 😘❤️</h1>
+	<h3>IIIIIII LOVEEEEEEEEEEE YOUUUUUUU DARLINGGGGGGGG🩵💘</h3>
+</div>
+
+<script>
+const messages = [
+  "Are you sure?",
+  "Really sure??",
+  "Think again 😭",
+  "Pookie please...",
+  "Don’t break my heart 💔",
+  "I’ll be sad...",
+  "Very sad...",
+  "Extremely sad...",
+  "Okay fine 😔",
+  "Just say YES ❤️"
+];
+
+let messageIndex = 0;
+
+function handleNoClick() {
+  const noBtn = document.querySelector('.no-button');
+  const yesBtn = document.querySelector('.yes-button');
+
+  noBtn.textContent = messages[messageIndex];
+  messageIndex = (messageIndex + 1) % messages.length;
+
+  let size = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+  yesBtn.style.fontSize = (size * 1.25) + "px";
+}
+
+function handleYesClick() {
+  document.getElementById("mainPage").style.display = "none";
+  document.getElementById("yesPage").style.display = "block";
+}
+</script>
+
+</body>
+</html>
